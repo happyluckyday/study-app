@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\ImpersonationController;
 // Social Login
 Route::get('auth/{provider}', [SocialLoginController::class, 'redirect'])->name('social.redirect');
 Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('social.callback');
+Route::get('auth/social/bind', [SocialLoginController::class, 'showBindForm'])->name('social.bind');
+Route::post('auth/social/bind', [SocialLoginController::class, 'bind'])->name('social.bind.submit');
 
 // Admin Impersonation
 Route::get('admin/impersonate/{id}', [ImpersonationController::class, 'impersonate'])->name('admin.impersonate');
