@@ -41,7 +41,7 @@ class SocialLoginController extends Controller
                 // Register pure OAuth account
                 $user = User::create([
                     'name' => $socialUser->getName() ?? $socialUser->getNickname() ?? 'User',
-                    'email' => $email,
+                    'email' => $email ?? ($providerId . '@' . $provider . '.oauth'),
                     'password' => null, // Allowed by migration
                     $providerField => $providerId,
                 ]);
